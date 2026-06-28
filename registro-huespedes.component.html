@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Registro de Huéspedes - QUITO AIRPORT SUITES</h1>
+
+  <form (ngSubmit)="registrarHuesped()" #form="ngForm">
+    <label>Nombre del Cliente:</label>
+    <input type="text" [(ngModel)]="nuevoRegistro.nombre" name="nombre" required />
+
+    <label>Número de Personas:</label>
+    <input type="number" [(ngModel)]="nuevoRegistro.numeroPersonas" name="numeroPersonas" min="1" required />
+
+    <label>Observaciones:</label>
+    <textarea [(ngModel)]="nuevoRegistro.observaciones" name="observaciones"></textarea>
+
+    <button type="submit" [disabled]="!form.valid">Registrar</button>
+  </form>
+
+  <h2>Habitaciones Ocupadas ({{registros.length}} / {{habitacionesTotales}})</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Habitación</th>
+        <th>Cliente</th>
+        <th>Personas</th>
+        <th>Observaciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of registros">
+        <td>{{r.habitacion}}</td>
+        <td>{{r.nombre}}</td>
+        <td>{{r.numeroPersonas}}</td>
+        <td>{{r.observaciones}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
