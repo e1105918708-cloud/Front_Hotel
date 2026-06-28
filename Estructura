@@ -1,0 +1,2 @@
+ng new hotel-registro --style=scss --routing=true
+cd hotel-registro
